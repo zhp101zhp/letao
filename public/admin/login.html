@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入核心包 css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body class="bg_body">
+    
+    <!-- 栅格布局 -->
+    <div class="container">
+         <div class="col-md-4 col-md-offset-4">
+            <!-- 组件bootstrap -->
+            <div class="panel panel-primary mt_150">
+                <div class="panel-heading">
+                    <h4>乐淘后台管理系统</h4>
+                </div>
+                <div class="panel-body">
+                  <!-- 表单组件 -->
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="username" class="col-sm-3 control-label">用户名</label>
+                      <div class="col-sm-9">
+                        <!-- 关闭表单提示 -->
+                        <input type="text" class="form-control" autocomplete="off" name="username" id="username" placeholder="请输入用户名">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-sm-3 control-label">密码</label>
+                      <div class="col-sm-9">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="请输入密码">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-3 col-sm-6">
+                        <button type="reset" class="btn btn-default pull-left">重置</button>
+                        <button type="submit" class="btn btn-primary pull-right">登录</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+
+    <!-- js 核心包 -->
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
