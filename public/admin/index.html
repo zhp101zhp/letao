@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>系统管理-首页</title>
+    <!-- 引包 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/common.css">
+    
+
 </head>
 <body>
-    首页
+   <div class="lt-aside">
+       <div class="brander">
+           <!-- 点击文字跳转到首页 -->
+           <a href="index.html">黑马15期</a>
+       </div>
+       <div class="user">
+           <img src="images/default.jpg" alt="">
+           <p>超级管理员</p>
+       </div>
+       <div class="nav">
+           <ul>
+               <li>
+                    <!-- 字体图标 span-->                 
+                   <a href="user.html"> <span class="glyphicon glyphicon-user"></span>  用户管理</a>
+               </li>
+
+               <li>
+                    <!-- 字体图标 span-->                 
+                   <a href="javascript:;"> <span class="glyphicon glyphicon-list"></span> 分类管理</a>
+               </li>
+
+               <li>
+                    <!-- 字体图标 span-->                 
+                   <a href="product.html"> <span class="glyphicon glyphicon-tags"></span>  商品管理</a>
+               </li>
+           </ul>
+       </div>
+   </div>
+
+   <div class="lt-main">
+       
+   </div>
+
+
+   <!-- 引入js核心包 -->
+   <script src="lib/jquery/jquery.js"></script>
+   <script src="lib/bootstrap/js/bootstrap.js"></script>
+   <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+   <script src="lib/nprogress/nprogress.js"></script>
+   <script src="js/common.js"></script>
+   <script src="js/index.js"></script>
 </body>
 </html>
