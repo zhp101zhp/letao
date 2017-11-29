@@ -10,6 +10,7 @@ html,body{
   margin: 0;
   padding: 0;
   list-style: none;
+  box-sizing: border-box;
 }
 .bg_body {
     background-color: #222d32;
@@ -23,13 +24,16 @@ html,body{
     text-align: center;
   }
 
-  a:link, a:visited, a:hover, a:actived{
-    text-decoration: none;
-  }
   a{
     text-decoration: none;
   }
 
+
+  a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+  }
+  
+  
   /* 首页样式设置 */
   .lt-aside{
     height: 100%;
@@ -39,6 +43,11 @@ html,body{
     position: absolute;
     left: 0;
     top: 0;
+    transition: all 1s;
+  }
+  /* 隐藏 */
+  .lt-aside.now{
+    left:-180px;
   }
   .lt-aside .brander a{
     height: 50px;
@@ -75,13 +84,26 @@ html,body{
   .lt-aside .nav a {
     display: block;
     height: 40px;
-    line-height: 40px;
+    line-height: 34px;
     color:#ccc;
     padding-left: 30px;
     /* 加padding 盒子变大 和模型内减 */
-    box-sizing:border-box;
+    /* box-sizing:border-box; */
+
+    border:3px solid transparent;
 
   }
+
+  .lt-aside .nav .child a {
+    padding-left: 50px;
+  }
+
+  /* 选中的样式 */
+.lt-aside .nav a.now {
+  background-color: #1d1f21;
+  color: #fff;
+  border-left-color: #069;
+}
 
 
   /* 主体部分 */
@@ -89,5 +111,32 @@ html,body{
   .lt-main{
     height: 100%;
     width: 100%;
-    background-color: pink;
+    padding-left: 180px;
+    transition: all 1s;
   }
+  .lt-main.now{
+    padding-left: 0px;
+  }
+
+  .lt-main .lt-top{
+    height: 50px;
+    line-height: 50px;
+    background-color: #3c8dbc;
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .lt-top a {
+    color:#fff;
+    font-size: 16px;
+  }
+
+
+  
+.chart_left,
+.chart_right {
+  width: 45%;
+  height: 400px;
+}
+
+

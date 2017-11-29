@@ -16,4 +16,48 @@ $(function(){
         NProgress.done();
     })
 
+
+    // 二级菜单的显示与隐藏 给a注册点击事件
+    $(".child").prev().on('click',function(){
+        //让当前元素的下一个元素显示
+        //$(this).next().slideDown();
+        // 需要来回切换
+       $(this).next().slideToggle();
+    });
+
+    // 侧边栏的显示与隐藏
+    $(".icon_menu").on('click',function(){
+       // alert("jj");
+        $(".lt-aside").toggleClass('now');
+        $(".lt-main").toggleClass('now');
+    });
+
+
+    //退出功能
+    $(".icon_logout").on("click",function(){
+        //alert("heh");
+        //弹出模态框
+        $("#logoutModal").modal("show");
+
+        // 点击退出时 需要向后台发送AJAX请求 告知后台把你的信息清除
+        //因为jquery注册事件不会覆盖。
+        //off()解绑所有的事件  不解绑会触发多次
+        //off("click")
+        $(".btn-logout").on('click',function(){
+            $.ajax({
+                //  
+                type:'get',
+                url:'/employee/employeeLogout',
+
+                success:function(data){
+                    //console.log(data);
+                    if(data.success){
+                        location.href='login.html';
+                    }
+                }
+             });
+            
+        })
+    })
+
 })

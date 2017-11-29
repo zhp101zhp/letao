@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>系统管理-首页</title>
+    <title>系统管理-一级分类</title>
     <!-- 引包 -->
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
@@ -33,8 +33,8 @@
                <li>
                     <!-- 字体图标 span-->                 
                    <a href="javascript:;"> <span class="glyphicon glyphicon-list"></span> 分类管理</a>
-                   <div class="child" style="display:none">
-                       <a href="first.html">一级分类</a>
+                   <div class="child" >
+                       <a class="now" href="first.html">一级分类</a>
                        <a href="second.html">二级分类</a>
                    </div>
                </li>
@@ -58,16 +58,9 @@
            <!-- 面包屑导航 -->
             <ol class="breadcrumb">
                 <li><a href="#">管理系统</a></li>
-                <li><a href="#">首页</a></li>
+                <li><a href="#">分类管理</a></li>
+                <li><a href="#">一级分类</a></li>
             </ol>
-
-
-            <div class="lt_content">
-                    <!-- 画布 报表 -->
-                <div class="chart_left pull-left">11</div>
-                <div class="chart_right pull-right">22</div>
-            
-            </div>
        </div>
    </div>
 
@@ -97,8 +90,6 @@
    <script src="lib/bootstrap/js/bootstrap.js"></script>
    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
    <script src="lib/nprogress/nprogress.js"></script>
-    <!-- 报表 -->
-   <script src="lib/echarts/echarts.min.js"></script>
    <script src="js/common.js"></script>
    <script src="js/index.js"></script>
 </body>
