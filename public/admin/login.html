@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>系统管理-登录</title>
 
     <!-- 引入核心包 css -->
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- bootstrap的前端校验插件 -->
     <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="css/common.css">
 </head>
 <body class="bg_body">
@@ -25,9 +27,10 @@
                   <!-- 表单组件 -->
                   <form class="form-horizontal">
                     <div class="form-group">
+                      <!-- for值与id对应 name用与表单提交 -->
                       <label for="username" class="col-sm-3 control-label">用户名</label>
                       <div class="col-sm-9">
-                        <!-- 关闭表单提示 -->
+                        <!-- 关闭表单提示 autocomplete="off" 默认是on-->
                         <input type="text" class="form-control" autocomplete="off" name="username" id="username" placeholder="请输入用户名">
                       </div>
                     </div>
@@ -53,7 +56,9 @@
     <!-- js 核心包 -->
     <script src="lib/jquery/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 引入js文件表单校验基于前两个 -->
     <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+    <script src="lib/nprogress/nprogress.js"></script>
     <script src="js/common.js"></script>
     <script src="js/login.js"></script>
 </body>
