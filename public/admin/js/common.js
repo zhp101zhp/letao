@@ -14,7 +14,24 @@ $(function(){
         //console.log("呵呵呵");
         //结束进度条
         NProgress.done();
-    })
+    });
+
+    //非登陆页 发送AJAX请求   询问是否登录  如果没有登录 跳转到登录叶
+
+    if(location.href.indexOf('login.html') ==-1){
+        $.ajax({
+            type:'get',
+            url:"/employee/checkRootLogin",
+            success:function(data){
+                //console.log(data);
+                if(data.error === 400){
+                    location.href= 'login.html';
+                }
+            }
+        })
+    }
+   
+
 
 
     // 二级菜单的显示与隐藏 给a注册点击事件

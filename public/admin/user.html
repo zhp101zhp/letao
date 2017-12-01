@@ -17,10 +17,10 @@
    <div class="lt-aside">
        <div class="brander">
            <!-- 点击文字跳转到首页 -->
-           <a href="index.html">黑马15期</a>
+           <a href="index.html">黑马16期</a>
        </div>
        <div class="user">
-           <img src="images/default.jpg" alt="">
+           <img src="images/avatar.jpg" alt="">
            <p>超级管理员</p>
        </div>
        <div class="nav">
@@ -60,11 +60,39 @@
                 <li><a href="#">管理系统</a></li>
                 <li><a href="#">用户管理</a></li>
             </ol>
+
+
+            <!-- 表格 -->
+            <div class="lt_content">
+                <!-- 鼠标悬停效果 -->
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td width="10%">序号</td>
+                            <td width="30%">用户名</td>
+                            <td width="30%">手机号</td>
+                            <td width="20%">状态</td>
+                            <td width="10%">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 挖个坑 模板渲染 -->
+                    </tbody>
+                </table>
+
+                <!-- 分页的盒子  用于设置位置 -->
+                <div class="text-right">
+                    <!-- 分页 2 准备结构 -->
+                    <ul id="paginator"></ul>
+                </div>  
+            </div>
+
+            
        </div>
    </div>
 
 
-   <!-- 模态框 -->
+   <!-- 模态框 退出时-->
 
    <div class="modal fade" tabindex="-1" role="dialog" id="logoutModal">
         <div class="modal-dialog modal-sm" role="document">
@@ -82,14 +110,81 @@
             </div>
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+    </div><!-- /.modal -->
+
+
+    <!-- 禁用模态框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="logoutModal">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                  <p  class="text-danger">您确定要退出后台管理系统吗？&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary btn-logout">退出</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="userModal">
+            <div class="modal-dialog modal-sm" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                  <p  class="text-danger">您确定要执行此操作吗？&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary btn-confirm">确定</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+    <!-- 表单模板殷勤 1 窗机爱你一个模板-->
+    <script type="text/html" id="tpl">
+        {{each rows v i }}
+        <tr>
+            <!-- page-1)*size+i+1 随机序号 -->
+            <td>{{(page-1)*size+i+1}}</td>
+            <td>{{v.username}}</td>
+            <td>{{v.mobile}}</td>
+            <td>{{v.isDelete===1 ? '正常':'禁用'}}</td>
+            <!-- 存id -->
+            <td data-id='{{v.id}}'>
+                {{if v.isDelete === 1 }}
+                <!-- 1表示正常  显示禁用-->
+                <button class="btn btn-danger btn-sm">禁用</button>
+                {{else if v.isDelete === 0}}
+                <!-- 0表示禁用 显示启用 -->
+                <button class="btn btn-success btn-sm">正常</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
 
    <!-- 引入js核心包 -->
    <script src="lib/jquery/jquery.js"></script>
    <script src="lib/bootstrap/js/bootstrap.js"></script>
    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
    <script src="lib/nprogress/nprogress.js"></script>
+     <!-- 1.引包 模板渲染表格-->
+   <script src="lib/artTemplate/template-web.js"></script>
+   <!--1 模板渲染分页  bootstrap-paginator插件 -->
+   <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
    <script src="js/common.js"></script>
-   <script src="js/index.js"></script>
+   <script src="js/user.js"></script>
 </body>
 </html>
