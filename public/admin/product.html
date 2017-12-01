@@ -60,6 +60,38 @@
                 <li><a href="#">管理系统</a></li>
                 <li><a href="#">商品管理</a></li>
             </ol>
+
+
+            <!-- 表格 -->
+            <div class="lt_content">
+                    
+                <!-- 按钮 添加分类 -->
+                <button class="btn btn-default mb_20 btn_add">添加商品</button>
+                <!-- 鼠标悬停效果 -->
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td width="10%">序号</td>
+                            <td width="25%">商品名称</td>  
+                            <td width="25%">商品描述</td>            
+                            <td width="10%">商品库存</td>
+                            <td width="10%">商品尺寸</td>
+                            <td width="10%">商品状态</td>
+                            <td width="10%">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- 挖个坑 模板渲染 -->
+                                                
+                    </tbody>
+                </table>
+                        
+                <!-- 分页的盒子  用于设置位置 -->
+                <div class="text-right">
+                    <!-- 分页 2 准备结构 -->
+                    <ul id="paginator"></ul>
+                </div>  
+            </div>
        </div>
    </div>
 
@@ -84,12 +116,154 @@
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
 
+
+
+      <div class="modal fade" tabindex="-1" role="dialog" id="productModal">
+            <div class="modal-dialog " role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">添加分类</h4>
+                </div>
+                <!-- 表单组件 -->
+                <form id="form"> 
+                        <div class="modal-body">
+                                   
+                            <div class="form-group">
+                               <!-- bootstrap中的下拉菜单组件 -->
+                               <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  <!-- 当点击选择时 要更换其内容 -->
+                                  <span class="dropdown-text">请选择二级级分类</span>
+                                    
+                                  <span class="caret"></span>
+    
+                                  <!-- input设置name属性用于给后台传递数据提交   让其隐藏不能让用户看到 hidden -->
+                                  <input type="hidden" name="brandId">
+    
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <!-- 在挖一个坑 -->
+                                  
+                                </ul>
+                              </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <!-- name根据后台提供的接口文档设置值 -->
+                                <input type="text" autocomplete="off" name="proName" class="form-control" placeholder="请输入商品的名称">
+                            </div>
+
+                            <div class="form-group">
+                                    <!-- name根据后台提供的接口文档设置值 -->
+                                    <!-- <input type="textarea" autocomplete="off" name="brandName" class="form-control" placeholder="请输入商品的描述"> -->
+
+                                    <textarea name="proDesc" id="" autocomplete="off"  rows="3" class="form-control"  placeholder="请输入商品的描述"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                    <!-- name根据后台提供的接口文档设置值 -->
+                                    <input type="text" autocomplete="off" name="num" class="form-control" placeholder="请输入商品的库存">
+                            </div>
+
+                            <div class="form-group">
+                                    <!-- name根据后台提供的接口文档设置值 -->
+                                    <input type="text" autocomplete="off" name="size" class="form-control" placeholder="请输入商品的尺码(32-46)">
+                            </div>
+
+                            <div class="form-group">
+                                    <!-- name根据后台提供的接口文档设置值 -->
+                                    <input type="text" autocomplete="off" name="oldPrice" class="form-control" placeholder="请输入商品的原价">
+                            </div>
+
+                            <div class="form-group">
+                                    <!-- name根据后台提供的接口文档设置值 -->
+                                    <input type="text" autocomplete="off" name="price" class="form-control" placeholder="请输入商品的价格">
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="fileupload_box">
+                                    <!-- 这里添加一个file用于文件上传 -->
+                                    <button class="btn btn-default">上传图片</button>
+                                    <!-- 需要将两个层叠在一起  让其在上面  设置位透明-->
+                                    <input type="file" class="btn btn-default" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic">
+                                   
+                                    <!--
+                                        id:方便获取
+                                        name:pic1 指定图片的name属性，后端要通过这个name属性来获取到这张图片
+                                        data-url:指定图片上传的接口地址
+                                        <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+                                     -->
+                                    
+                                </div>
+                            </div>
+    
+                            <div class="form-group img_box">
+    
+                                <!-- 更改图片地址 -->
+                                <img src="images/none.png" width="100" height="100" alt="">
+                                 <!-- 同上用于给后台提供数据 -->
+                                 <input type="hidden" name="brandLogo">
+                                 
+                                 <!-- 热度 设置死 -->
+                                 <input type="hidden" name="statu" value="1">
+                            </div>
+                        
+                         </div>
+                        <div class="modal-footer">
+                         <!-- 
+                                html新增属性：placeholder autofocus autocomplete multiple form
+        
+                                form="form"给表单元素添加，允许写到form的外面
+                            -->
+                            <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary" >添加</button>
+                        </div>
+                    </form>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+    
+
+      <!-- 模板殷勤 获取数据渲染表单 -->
+      <script type="text/html" id="tpl">
+
+        <!-- 遍历 数据 渲染到页面 -->
+        {{each rows v i}}
+        <tr>          
+            <td>{{(page-1)*size +i +1}}</td>
+            <td>{{v.proName}}	</td>
+            <td>{{v.proDesc}}</td>
+            <td>{{v.num}}</td>
+            <td>{{v.size}}</td>
+            <td>{{v.statu===1?'已上架':'已下架'}}</td>
+            <td>
+                <button class=" btn btn-default btn-danger">下架</button>
+            </td>
+        </tr>
+        {{/each}}
+      </script>
+
+
+       <!-- 第二个模板 动态获取一级分类渲染 下拉菜单 -->
+     <script type="text/html" id="tpl2">
+        {{each rows v i}}
+        <!-- 存id 自定义属性 -->
+        <li><a data-id = {{v.id}} href="javascript:;">{{v.brandName}}</a></li>
+        {{/each}}
+    </script>
    <!-- 引入js核心包 -->
    <script src="lib/jquery/jquery.js"></script>
    <script src="lib/bootstrap/js/bootstrap.js"></script>
    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
    <script src="lib/nprogress/nprogress.js"></script>
+
+   
+   <!-- 1.引包 模板渲染表格-->
+   <script src="lib/artTemplate/template-web.js"></script>
+   <!--1 模板渲染分页  bootstrap-paginator插件 -->
+   <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
    <script src="js/common.js"></script>
-   <script src="js/index.js"></script>
+   <script src="js/product.js"></script>
 </body>
 </html>
