@@ -149,11 +149,14 @@
                               </div>
                             </div>
     
+                            <!-- 商品名称 -->
                             <div class="form-group">
                                 <!-- name根据后台提供的接口文档设置值 -->
                                 <input type="text" autocomplete="off" name="proName" class="form-control" placeholder="请输入商品的名称">
                             </div>
 
+
+                            <!-- 商品描述 -->
                             <div class="form-group">
                                     <!-- name根据后台提供的接口文档设置值 -->
                                     <!-- <input type="textarea" autocomplete="off" name="brandName" class="form-control" placeholder="请输入商品的描述"> -->
@@ -161,32 +164,37 @@
                                     <textarea name="proDesc" id="" autocomplete="off"  rows="3" class="form-control"  placeholder="请输入商品的描述"></textarea>
                             </div>
 
+                            <!-- 库存 -->
                             <div class="form-group">
                                     <!-- name根据后台提供的接口文档设置值 -->
                                     <input type="text" autocomplete="off" name="num" class="form-control" placeholder="请输入商品的库存">
                             </div>
 
+                            <!-- 尺码 -->
                             <div class="form-group">
                                     <!-- name根据后台提供的接口文档设置值 -->
                                     <input type="text" autocomplete="off" name="size" class="form-control" placeholder="请输入商品的尺码(32-46)">
                             </div>
 
+                            <!-- 原价 -->
                             <div class="form-group">
                                     <!-- name根据后台提供的接口文档设置值 -->
                                     <input type="text" autocomplete="off" name="oldPrice" class="form-control" placeholder="请输入商品的原价">
                             </div>
 
+                            <!-- 现价 -->
                             <div class="form-group">
                                     <!-- name根据后台提供的接口文档设置值 -->
                                     <input type="text" autocomplete="off" name="price" class="form-control" placeholder="请输入商品的价格">
                             </div>
     
+                            <!-- 图片 -->
                             <div class="form-group">
                                 <div class="fileupload_box">
                                     <!-- 这里添加一个file用于文件上传 -->
                                     <button class="btn btn-default">上传图片</button>
                                     <!-- 需要将两个层叠在一起  让其在上面  设置位透明-->
-                                    <input type="file" class="btn btn-default" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic">
+                                    <input type="file" class="btn btn-default" id="fileupload" name="pic1" data-url="/product/addProductPic" multiple>
                                    
                                     <!--
                                         id:方便获取
@@ -201,7 +209,9 @@
                             <div class="form-group img_box">
     
                                 <!-- 更改图片地址 -->
+                                <!-- <img src="images/none.png" width="100" height="100" alt="">
                                 <img src="images/none.png" width="100" height="100" alt="">
+                                <img src="images/none.png" width="100" height="100" alt=""> -->
                                  <!-- 同上用于给后台提供数据 -->
                                  <input type="hidden" name="brandLogo">
                                  
@@ -238,7 +248,11 @@
             <td>{{v.size}}</td>
             <td>{{v.statu===1?'已上架':'已下架'}}</td>
             <td>
-                <button class=" btn btn-default btn-danger">下架</button>
+                {{if v.statu === 1}}
+                <button class=" btn btn-default btn-danger btn-sm">下架</button>
+                {{else if v.statu === 0}}
+                <button class=" btn btn-success btn-success btn-sm">上架</button>
+                {{/if}}
             </td>
         </tr>
         {{/each}}
@@ -254,6 +268,11 @@
     </script>
    <!-- 引入js核心包 -->
    <script src="lib/jquery/jquery.js"></script>
+
+   <!-- 上传文件 所需的文件-->
+   <script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+   <script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+   
    <script src="lib/bootstrap/js/bootstrap.js"></script>
    <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
    <script src="lib/nprogress/nprogress.js"></script>
