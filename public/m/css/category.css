@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/*============== 主体区域开始侧边栏 固定============== */
+.category_left{
+    width: 90px;
+    height: 100%;
+    background-color: #fff;
+    /* 区域滚动事件 */
+    position: relative;
+    float: left;
+}
+
+.category_left li a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+    background-color: pink;
+    font-size: 16px;
+}
+
+.category_left li.now a {
+    border-right: none;
+    background-color: #fff;
+}
+/*============== 主体区域结束侧边栏============== */
+/* =============主体区域 开始 商品图标 自适应============== */
+.category_right{
+    /* 不指定宽度 自适应 可以用margin自减 也可以用overflow:hidden*/
+    height: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    /* 区域滚动事件 */
+    position: relative;
+}
+
+.category_right li{
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+}
+
+.category_right li img{
+    width: 62px;
+    height: 62px;
+    display: block;
+    margin: 0 auto;
+}
+
+.tips{
+    padding: 10px;
+    font-size: 12px;
+    color:greenyellow;
+}
+
+/* =============主体区域 结束 商品图标============== */

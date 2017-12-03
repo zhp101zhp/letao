@@ -39,8 +39,43 @@ $(function(){
             bootstrapMajorVersion:3,
             //当前页面
             currentPage:currentPage,
-            // 总页码数
-            totalPages:Math.ceil(data.total/data.size),
+            //type属性：
+          // 如果是首页---> first
+          // 上一页-->prev
+          // 下一页-->next
+          // 尾页-->last
+          // 具体的页码-->page
+          totalPages: Math.ceil(data.total / pageSize),
+          itemTexts: function (type, page, current) {
+            switch (type) {
+              case "first":
+                return "首页";
+              case "prev":
+                return "上一页";
+              case "next":
+                return "下一页";
+              case "last":
+                return "尾页";
+              //如果是page，说明就是数字，只需要返回对应的数字即可
+              default:
+                return page;
+            }
+          },
+          tooltipTitles: function (type, page, current) {
+            switch (type) {
+              case "first":
+                return "首页";
+              case "prev":
+                return "上一页";
+              case "next":
+                return "下一页";
+              case "last":
+                return "尾页";
+              //如果是page，说明就是数字，只需要返回对应的数字即可
+              default:
+                return "跳转到" + page;
+            }
+          },
             
             // 点击对应页面跳转
             onPageClicked:function(a,b,c,page){
