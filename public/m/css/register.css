@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.myform {
+    padding: 10px;
+}
+
+.myform .vCode_wrap input{
+    width: 65%;
+}
+
+.myform .vCode_wrap button{
+    width: 30%;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+}
+
+/* 点击后的样式 */
+.myform .vcode_box button.disabled {
+    background-color: #999;
+    border-color: #999;;
+}
+
+.myform .btn_register{
+    width: 100%;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+}
+
+
+.myform .tips {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+  }

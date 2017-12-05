@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>乐淘商城-首页</title>
+    <title>乐淘商城-搜索页</title>
 
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="lib/mui/css/mui.css">
     <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/search.css">
 
 </head>
 <body>
@@ -23,38 +24,27 @@
             <a href="javascript:history.go(-1);" class="icon_left">
                 <span class="mui-icon mui-icon-back"></span>
             </a>
-            <h4>乐淘分类</h4>
-            <a href="search.html" class="icon_right">
-                <span class="fa fa-search"></span>
-            </a>
+            <h4>搜索中心</h4>
+            
         </div>
         <!-- 头部模块结束 -->
 
         <!-- 中心模块开始 -->
         <div class="lt_main">
-            <!-- 左侧侧边栏区域 -->
-            <div class="category_left">
-                <!-- 使用区域滚动插件 区域滚动组件默认为absolute定位，全屏显示 -->
-                <div class="mui-scroll-wrapper">
-                    <ul class="mui-scroll">
-                       
-                       <!-- 挖个坑 动态获取一级分类 渲染页面-->
-                       
-                    </ul>
-                </div>
-            </div>  
+            <!-- 滚动区域 -->
+           <div class="mui-scroll-wrapper">
+               <div class="mui-scroll">
+                   <!-- 这里放置真实显示的DOM内容 -->
+                   <div class="lt_search">
+                       <input type="text" placeholder="请输入搜索的关键字">
+                       <button class="mui-btn mui-btn-blue">搜索</button>
+                   </div>
+                   <div class="lt_history">
 
-            <!-- 右侧品牌图标区域 -->
-            <div class="category_right">
-                <!-- 使用区域滚动插件 区域滚动组件默认为absolute定位，全屏显示 -->
-                <div class="mui-scroll-wrapper">
-                    <ul class="mui-scroll">
-
-                        <!-- 在挖一个坑 -->
-                       
-                    </ul>
-                </div>
-            </div>  
+                       <!-- 挖一个坑 -->
+                   </div>
+               </div>
+           </div>
         </div>
         <!-- 中心模块结束 -->
 
@@ -67,7 +57,7 @@
                         <p>首页</p>
                     </a>
                 </li>
-                <li  class="now">
+                <li>
                     <a href="category.html">
                         <span class="fa fa-bars"></span>
                         <p>分类</p>
@@ -92,35 +82,38 @@
     </div>
 
 
-    <!-- 侧边栏创建模板 -->
-    <script type="text/html" id="tpl_left">
-        {{each rows v i}}
-        <!-- 存下对应id 当点击谁给谁加now类 -->
-        <li data-id = {{v.id}} class="{{i===0? 'now' :''}}"><a href="javascript:;">{{v.categoryName}}</a></li>
-        {{/each}}
-    </script>
-
-    <!-- 创建右侧模板  -->
-    <script type="text/html" id="tpl_right">
-        {{if rows.length === 0}}
-        <div class="tips">该分类下暂无品牌</div>
+    <!-- 列表渲染 -->
+    <script type ="text/html" id="tpl">
+        {{if list.length === 0}}
+            <!-- 如果是一个空数组 -->
+            <div class="tips">当前还没有该商品的搜索记录</div>
         {{/if}}
-        {{each rows v i}}
-        <li>
-            <a href="javascript:;">
-                <img src="{{v.brandLogo}}" alt="">  
-                <p>{{v.brandName}}</p>  
-            </a>
-        </li>
-        {{/each}}
-    </script>
 
+        {{if list.length > 0}}
+        <div class="title mui-clearfix">
+            <span class="mui-pull-left">搜索历史</span>
+            <span class="mui-pull-right fa fa-trash btn_empty">清空记录</span>
+        </div>
+        <div class="lt_content">
+            <ul>
+                {{each list v i}}
+                <li class="mui-clearfix">
+                    <a href="productList.html?key={{v}}" class="mui-pull-left">{{v}}</a>
+                    <span data-index = {{i}} class="mui-pull-right mui-icon mui-icon-closeempty btn_delete"></span>
+                </li>
+                {{/each}}
+               
+            </ul>
+        </div>
+        {{/if}}
+    </script>
+ 
 
     <script src="lib/mui/js/mui.js"></script>
     <!-- 模版引擎 -->
     <script src="lib/artTemplate/template-web.js"></script>
     <script src="lib/zepto/zepto.min.js"></script>
     <script src='js/common.js'></script>
-    <script src="js/category.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+
+.logout_wrap {
+    padding: 10px;
+    text-align: center;
+  
+}
+.logout_wrap a {
+    text-decoration: none;
+    color:#333;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 6px;
+    width: 100%;
+    display: block;
+}

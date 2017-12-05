@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘商城-商品列表</title>
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="lib/mui/css/mui.css">
+    <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/productList.css">
+
+</head>
+<body>
+
+    <div class="lt_container">
+        <!-- 头部模块开始 -->
+        <div class="lt_header">
+            <!-- 回到上一页 bom location:search href reload history:back forword go(-1) go(1) -->
+            <!-- 页面不跳转 执行此代码 javascript -->
+            <a href="javascript:history.go(-1);" class="icon_left">
+                <span class="mui-icon mui-icon-back"></span>
+            </a>
+            <h4>商品列表</h4>
+            
+        </div>
+        <!-- 头部模块结束 -->
+
+        <!-- 中心模块开始 -->
+        <div class="lt_main">
+            <!-- 滚动区域 -->
+           <div class="mui-scroll-wrapper">
+               <div class="mui-scroll">
+                   <!-- 这里放置真实显示的DOM内容 -->
+                   <div class="lt_search">
+                       <input type="text" placeholder="请输入搜索的关键字">
+                       <button class="mui-btn mui-btn-blue">搜索</button>
+                   </div>
+                   <div class="lt_sort">
+                       <a href="javascript:;">
+                           上架时间
+                           <span class="fa fa-angle-down"></span>
+                       </a>
+                       <!-- 价格排序 price-->
+                       <a href="javascript:;" data-type = "price">
+                            价格
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                        <!-- 库存排序 num -->
+                        <a href="javascript:;" data-type = "num">
+                            库存
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                        <a href="javascript:;">
+                            折扣
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                   </div>
+                   <div class="lt_product nui-clearfix">
+                      <!-- 挖个坑 -->
+                      <!-- 加载显示圈圈 -->
+                      <div class="loading"></div>
+
+                   </div>
+               </div>
+           </div>
+        </div>
+        <!-- 中心模块结束 -->
+
+        <!-- 尾部模块开始 -->
+        <div class="lt_footer">
+            <ul class="mui-clearfix">
+                <li>
+                    <a href="index.html">
+                        <span class="fa fa-home"></span>
+                        <p>首页</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="category.html">
+                        <span class="fa fa-bars"></span>
+                        <p>分类</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="cart.html">
+                        <span class="fa fa-shopping-cart"></span>
+                        <p>购物车</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <span class="fa fa-user"></span>
+                        <p>会员中心</p>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- 尾部模块结束 -->
+    </div>
+
+
+    <!-- 模板引擎 -->
+    <script type="text/html" id="tpl">
+        <!-- 如果没有数据 -->
+        {{if data.length === 0}}
+        <div class="tips">没有更多的商品</div>
+        {{/if}}
+        {{each data v i}}
+        <a href="product.html?productId={{v.id}}" class="item">
+            <img src="{{v.pic[0].picAddr}}" alt="">
+            <!-- 文本内容超过两行 省略...... -->
+            <p class="mui-ellipsis-2">{{v.proName}} </p>
+                        
+            <p>
+                <span class="price">&yen;{{v.price}}</span>
+                <span class="oldPrice">&yen;{{v.oldPrice}}</span>
+            </p>
+            <button class="mui-btn mui-btn-blue">立即购买</button>
+        </a>
+        {{/each}}
+           
+    </script>
+   
+ 
+
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 模版引擎 -->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <script src="lib/zepto/zepto.min.js"></script>
+    <script src='js/common.js'></script>
+    <script src="js/productList.js"></script>
+</body>
+</html>

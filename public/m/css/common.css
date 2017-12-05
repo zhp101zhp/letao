@@ -149,3 +149,37 @@ html,body {
 }
 
 /* =============中心样式 结束 ================*/
+
+
+
+
+/* 搜索区域样式 */
+
+.lt_search{
+    padding: 10px;
+    position: relative;
+}
+
+.lt_search input {
+    height: 34px;
+    border: 1px solid #007aff;
+    font-size: 12px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.lt_search button {
+    position: absolute;
+    top:10px;
+    right:10px;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* 提示信息 */
+.tips{
+    font-size: 14px;
+    color:#666;
+    padding: 10px;
+}
+ 

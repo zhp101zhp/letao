@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.product_img {
+    float: left;
+  }
+  
+  .product_img img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .product_info {
+    /* 触发BFC 解决图文环绕问题 */
+    overflow: hidden;
+    padding-left: 10px;
+  }
+  
+  
+  .product_info .proName {
+    color: #333;
+    margin-bottom: 5px;
+    height: 42px;
+  }
+  
+  .product_info .price {
+    color: red;
+  }
+  
+  .product_info .oldPrice {
+    text-decoration: line-through;
+  }
+  
+  .product_info .num {
+    float: right;
+  }
+  
+  .ck {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+  }
+
+
+  .lt_container {
+    padding-bottom: 85px;
+  }
+
+
+  .lt_total{
+    position: absolute;
+    bottom: 55px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    /* 加层级为了可以看到 这个方法不可取 需要给 大盒子设置padding */
+    z-index: 999;
+    width: 100%;
+    font-size: 12px;
+    color:red;
+    padding-left: 10px;
+  }
+  .lt_total a{
+    color:#fff;
+    padding: 0 15px;
+    background-color: red;
+  }
+
+  /* 表格 display:table-cell 宽度不能继承父类 有内容撑开 */
+  .mui-table-cell {
+    display:block;
+  }
+
+  .lt_edit_size
+  .lt_edit_num{
+    text-align: left;
+  }
+  .lt_edit_size span{
+    font-size: 12px;
+    padding: 5px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    line-height: 30px;
+  }
+
+  .lt_edit_size span.now{
+    background-color: #069;
+  }
